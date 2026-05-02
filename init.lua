@@ -119,6 +119,12 @@ vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 -- Enable break indent
 vim.o.breakindent = true
 
+-- Setting for C++ coding, but eventually would like to have this set
+-- based on the file.
+-- TODO: Maybe create a function that checks the file type whenever a new
+-- file/buffer is loaded and loads my default configuration.
+vim.o.sw = 2
+
 -- Enable undo/redo changes even after closing and reopening a file
 vim.o.undofile = true
 
@@ -600,7 +606,7 @@ require('lazy').setup({
       --  See `:help lsp-config` for information about keys and how to configure
       ---@type table<string, vim.lsp.Config>
       local servers = {
-        -- clangd = {},
+        clangd = {},
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
